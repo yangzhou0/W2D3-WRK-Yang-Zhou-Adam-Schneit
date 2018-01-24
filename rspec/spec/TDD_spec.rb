@@ -32,4 +32,30 @@ describe "#two_sum" do
      expect(arr.two_sum).to eq([[0,4], [2,3]])
    end
 end
-  
+
+
+describe 'my_transpose' do
+  let (:row){[
+    [0,1,2],
+    [3,4,5],
+    [6,7,8]
+    ]}
+  let (:col){[
+    [0,3,6],
+    [1,4,7],
+    [2,5,8]
+    ]}
+  let (:error_matrix) {[
+    [1,2],
+    [3,4],
+    [5,6]
+    ]}
+    it 'does not change the size of the array' do
+      expect(my_transpose(row).size).to eq(row.size)
+    end
+    
+    it 'does not accept non-symmetrical array'do
+
+      expect{my_transpose(error_matrix)}.to raise_error(BadMatrixError)
+    end
+end

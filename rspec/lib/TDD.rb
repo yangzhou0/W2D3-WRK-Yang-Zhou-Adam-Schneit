@@ -1,3 +1,5 @@
+class BadMatrixError < StandardError; end
+
 class Array
   def my_uniq 
     result = []
@@ -16,4 +18,18 @@ class Array
     end
     arr
   end
+end
+
+
+def my_transpose(arr)
+  raise BadMatrixError unless arr.count == arr[0].count
+  
+  dimension = arr.size
+  col = Array.new(dimension){Array.new(dimension)}
+  dimension.times do |i|
+    dimension.times do |j|
+      col[i][j] = row[j][i]
+    end
+  end
+  col
 end
