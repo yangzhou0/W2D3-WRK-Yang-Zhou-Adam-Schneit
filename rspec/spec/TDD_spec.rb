@@ -59,3 +59,17 @@ describe 'my_transpose' do
       expect{my_transpose(error_matrix)}.to raise_error(BadMatrixError)
     end
 end
+
+describe '#stock_picker' do
+  let (:stocks){[3.56, 2.89, 4.78, 1.23, 3.23, 7.65, 4.34, 1.78]} 
+    it "doesn't put sell date before buy date" do
+      expect(stock_picker(stocks)[0]).to be < (stock_picker(stocks)[1])
+    end
+    
+    it "gets the correct pair of days" do 
+      expect(stock_picker(stocks)).to eq([3,5])
+    end
+  
+end
+
+
